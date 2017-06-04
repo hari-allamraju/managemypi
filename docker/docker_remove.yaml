@@ -1,0 +1,29 @@
+---
+- name: uninstall and remove docker
+  hosts: rpi
+  become: True
+
+  tasks:
+  - name: stop docker
+    service: 
+      name: docker
+      state:  stopped
+
+  - name: disable docker autostart
+    service: 
+      name: docker
+      enabled:  no
+
+  - name: uninstall docker
+    apt:
+      name: docker
+      state:  absent
+      autoremove: yes
+
+  - name: Remove pi from docker
+    command: deluser pi docker
+
+  - name: remove all docker data
+    file: 
+      path: /var/lib/docker/
+      state:  absent
