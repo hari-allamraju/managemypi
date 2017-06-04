@@ -1,0 +1,7 @@
+---
+- name: remove from docker machine
+  hosts: rpi
+
+  tasks:
+  - name: Add to docker machine
+    local_action:  command docker-machine rm {{inventory_hostname}} -y

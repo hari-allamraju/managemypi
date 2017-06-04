@@ -27,3 +27,8 @@
     file: 
       path: /var/lib/docker/
       state:  absent
+
+  - name: remove docker service
+    file: 
+      path: /etc/systemd/system/docker.service.d
+      state:  absent
