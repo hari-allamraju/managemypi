@@ -1,0 +1,12 @@
+---
+- name: set hostnames and copy keys
+  hosts: rpi
+  become: True
+
+  tasks:
+  - name: set hostname
+    copy: 
+      content: "{{ inventory_hostname }}"
+      dest: "/etc/hostname"
+
+ 
