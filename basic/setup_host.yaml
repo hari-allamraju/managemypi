@@ -5,8 +5,14 @@
 
   tasks:
   - name: set hostname
-    copy: 
-      content: "{{ inventory_hostname }}"
-      dest: "/etc/hostname"
+    hostname: 
+      name: "{{ inventory_hostname }}"
+    tags:
+      - hostname
+  - name: set timezone to Asia/Singapore
+    timezone:
+      name: Asia/Singapore
+    tags:
+      - timezone
 
  
