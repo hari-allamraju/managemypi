@@ -14,5 +14,12 @@
       name: Asia/Singapore
     tags:
       - timezone
+  - name: set OS name for docker
+    lineinfile:
+      path: /etc/os-release
+      regexp: 'ID=raspbian'
+      line: 'ID=debian'
+    tags:
+      - os
 
  

@@ -1,0 +1,52 @@
+---
+- name: install and setup ftp 
+  hosts: rpi
+  become: True
+
+  tasks:
+  - name: hack to resolve Problem with MergeList Issue
+    shell: 'find /var/lib/apt/lists -maxdepth 1 -type f -exec rm -v {} \;'
+  
+  - name: clean apt
+    apt:
+      autoclean:  yes
+
+  - name: update apt
+    apt:
+      update_cache: yes
+
+  - name: install ftpd
+    apt:  
+      name: pure-ftpd
+      state:  present
+      allow_unauthenticated:  yes
+
+  - name: create user
+    user:
+      name: piftp
+      comment: "PI FTP"
+      group: ftpgroup
+      password: $6$dUhGDwkqu0kF3OTV$LVDlhpli/HpVtwLFRJx5B./gBhi4t78vNdNYsc/f3Pi70re6DpbFjuldRw7op3zeQ3Yuf.8/IrScSuKi/CENS/
+
+  - name: create directory for FTP
+    file:
+      path: '/home/{{ ansible_user}}/FTP'
+      state:  directory
+      owner:  ftpuser
+      group:  ftpgroup
+
+  - name: create ftp user
+    command: 'pure-pw useradd upload -u ftpuser -g ftpgroup -d /home/{{ ansible_user}}/FTP -m'
+
+  - name:  create FTP DB
+    command:  pure-pw mkdb
+
+  - name: setup auth
+    command: ln -s /etc/pure-ftpd/conf/PureDB /etc/pure-ftpd/auth/1puredb
+
+  - name: restart service
+    service:
+      name: pure-ftpd
+      state:  restart
+
+ 
