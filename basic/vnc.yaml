@@ -1,0 +1,29 @@
+---
+- name: install and setup ftp 
+  hosts: rpi
+  become: True
+
+  tasks:
+  - name: clean apt
+    apt:
+      autoclean:  yes
+
+  - name: update apt
+    apt:
+      update_cache: yes
+      cache_valid_time: 3600
+
+  - name: install vnc server
+    apt:  
+      name: realvnc-vnc-server
+      state:  latest
+      allow_unauthenticated:  yes
+
+  - name: install vnc viewer
+    apt:  
+      name: realvnc-vnc-viewer
+      state:  latest
+      allow_unauthenticated:  yes
+
+  - name: enable vnc
+    command:  raspi-config nonint do_vnc 0
