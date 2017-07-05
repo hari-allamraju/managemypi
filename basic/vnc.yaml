@@ -1,5 +1,5 @@
 ---
-- name: install and setup ftp 
+- name: install and setup vnc 
   hosts: rpi
   become: True
 

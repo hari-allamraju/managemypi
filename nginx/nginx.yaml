@@ -1,0 +1,38 @@
+---
+- name: install and setup nginx 
+  hosts: rpi
+  become: True
+
+  tasks:
+  - name: clean apt
+    apt:
+      autoclean:  yes
+
+  - name: update apt
+    apt:
+      update_cache: yes
+      cache_valid_time: 3600
+
+  - name: install nginx
+    apt:  
+      name: nginx
+      state:  latest
+      allow_unauthenticated:  yes
+
+  - name: add main conf
+    template:
+      src: nginx_conf.j2
+      dest: /etc/nginx/nginx.conf
+      mode: 0644
+
+  - name: add site conf
+    template:
+      src: default_conf.j2
+      dest: /etc/nginx/sites-available/default
+      mode: 0644
+
+  - name: restart service
+    service:
+      name: nginx
+      state:  restarted
+

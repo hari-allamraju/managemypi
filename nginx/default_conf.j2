@@ -1,0 +1,17 @@
+server {
+	listen 80 default_server;
+	listen [::]:80 default_server;
+
+	root /home/{{ ansible_user }}/FTP;
+
+	index index.html index.htm index.nginx-debian.html;
+
+	server_name _;
+
+	location /{
+		root /home/{{ ansible_user }}/FTP/; 
+   		index index.html; 
+   		autoindex on;
+	}
+
+}
