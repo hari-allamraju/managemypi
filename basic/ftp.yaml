@@ -43,7 +43,12 @@
   - name: configure ftp
     lineinfile:
       path: /etc/vsftpd.conf
-      line: local_umask=077
+      line: local_umask=0002
+
+  - name: configure ftp
+    lineinfile:
+      path: /etc/vsftpd.conf
+      line: file_open_mode=0777
 
   - name: configure ftp
     lineinfile:
