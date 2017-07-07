@@ -13,6 +13,10 @@
       update_cache: yes
       cache_valid_time: 3600
 
+  - name: install passlib
+    pip:
+      name: passlib
+
   - name: install nginx
     apt:  
       name: nginx
@@ -30,6 +34,15 @@
       src: default_conf.j2
       dest: /etc/nginx/sites-available/default
       mode: 0644
+
+  - name: create auth user
+    htpasswd:
+      path: /etc/nginx/.htpasswd
+      name: '{{ ansible_user }}'
+      password: '{{ ansible_user }}'
+      owner: root
+      group: www-data
+      mode: 0640
 
   - name: restart service
     service:
