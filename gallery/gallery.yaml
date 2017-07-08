@@ -1,0 +1,37 @@
+---
+- name: copy gallery code 
+  hosts: rpi
+
+  tasks:
+  - name: install jinja2 if needed
+    pip:
+      name: jinja2
+
+  - name: create the folder
+    file:
+      path: '/home/{{ ansible_user }}/gallery'
+      state: directory
+      mode: 0755
+
+  - name: create the templates folder
+    file:
+      path: '/home/{{ ansible_user }}/gallery/templates'
+      state: directory
+      mode: 0755
+
+  - name: copy python code
+    copy:
+      src:  gallery.py
+      dest: '/home/{{ ansible_user }}/gallery/gallery.py'
+
+  - name: copy template
+    copy:
+      src:  templates/index_html.j2
+      dest: '/home/{{ ansible_user }}/gallery/templates/index_html.j2'
+
+  - name: setup cron
+    cron:
+      name: "generate index html"
+      user: '{{ ansible_user }}'
+      minute: "/10"
+      job: "python /home/{{ ansible_user }}/gallery/gallery.py"
