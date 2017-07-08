@@ -33,5 +33,5 @@
     cron:
       name: "generate index html"
       user: '{{ ansible_user }}'
-      minute: "/10"
+      minute: "*/15"
       job: "python /home/{{ ansible_user }}/gallery/gallery.py"
