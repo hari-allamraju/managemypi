@@ -4,10 +4,6 @@
 		"selected_items":
 		[
 			[
-				"local",
-				"local_action"
-			],
-			[
 				"Lo",
 				"logLevel"
 			]
@@ -24,13 +20,21 @@
 			}
 		},
 		{
-			"file": "docker/docker_setup.yaml",
+			"file": "docker/docker_machine_add.yaml",
 			"settings":
 			{
-				"buffer_size": 412,
+				"buffer_size": 317,
 				"encoding": "UTF-8",
-				"line_ending": "Unix",
-				"name": "---"
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "docker/docker_machine_remove.yaml",
+			"settings":
+			{
+				"buffer_size": 164,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
 			}
 		},
 		{
@@ -38,58 +42,6 @@
 			"settings":
 			{
 				"buffer_size": 615,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "basic/setup_host.yaml",
-			"settings":
-			{
-				"buffer_size": 172,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "basic/power_down.yaml",
-			"settings":
-			{
-				"buffer_size": 116,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "basic/restart.yaml",
-			"settings":
-			{
-				"buffer_size": 113,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "basic/delete_keys.yaml",
-			"settings":
-			{
-				"buffer_size": 358,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "search_pi.sh",
-			"settings":
-			{
-				"buffer_size": 55,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "create_hosts.py",
-			"settings":
-			{
-				"buffer_size": 429,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -135,8 +87,8 @@
 	},
 	"file_history":
 	[
-		"/Users/hari/python/py2/flight/pyflightdata/pyflightdata/common.py",
-		"/Users/hari/ansible/managemypi/basic/restart.yaml",
+		"/Users/hari/ansible/managemypi/docker/docker_setup.yaml",
+		"/Users/hari/python/py2/taxidata/sg-taxidata/taxidataanalysis.sublime-project",
 		"/Users/hari/python/py2/divvy/data-divvy/requirements.txt",
 		"/Users/hari/kdb_learning/utils.q",
 		"/Users/hari/kdb_learning/logging.q",
@@ -146,11 +98,11 @@
 	],
 	"find":
 	{
-		"height": 35.0
+		"height": 23.0
 	},
 	"find_in_files":
 	{
-		"height": 93.0,
+		"height": 0.0,
 		"where_history":
 		[
 		]
@@ -160,21 +112,14 @@
 		"case_sensitive": false,
 		"find_history":
 		[
-			"r",
-			",\\n",
-			"$",
-			"^",
 			"`.[`registry]"
 		],
 		"highlight": true,
 		"in_selection": false,
 		"preserve_case": false,
-		"regex": true,
+		"regex": false,
 		"replace_history":
 		[
-			",",
-			"\",",
-			"\"",
 			"`.reg.registry"
 		],
 		"reverse": false,
@@ -186,7 +131,7 @@
 	"groups":
 	[
 		{
-			"selected": 8,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -202,8 +147,8 @@
 						"selection":
 						[
 							[
-								109,
-								109
+								0,
+								0
 							]
 						],
 						"settings":
@@ -216,40 +161,69 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "docker/docker_setup.yaml",
+					"file": "docker/docker_machine_add.yaml",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 412,
+						"buffer_size": 317,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								304,
-								304
+								0,
+								317
 							]
 						],
 						"settings":
 						{
-							"auto_name": "---",
+							"syntax": "Packages/YAML/YAML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "docker/docker_machine_remove.yaml",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 164,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								23,
+								23
+							]
+						],
+						"settings":
+						{
 							"syntax": "Packages/YAML/YAML.sublime-syntax"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 8,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
+					"buffer": 3,
 					"file": "docker/docker_remove.yaml",
 					"semi_transient": false,
 					"settings":
@@ -261,8 +235,8 @@
 						"selection":
 						[
 							[
-								223,
-								223
+								319,
+								319
 							]
 						],
 						"settings":
@@ -270,183 +244,12 @@
 							"syntax": "Packages/YAML/YAML.sublime-syntax",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "basic/setup_host.yaml",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 172,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/YAML/YAML.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "basic/power_down.yaml",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 116,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								116,
-								116
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/YAML/YAML.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "basic/restart.yaml",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 113,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								113,
-								113
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/YAML/YAML.sublime-syntax"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "basic/delete_keys.yaml",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 358,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								168,
-								168
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/YAML/YAML.sublime-syntax",
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "search_pi.sh",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 55,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/ShellScript/Shell-Unix-Generic.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "create_hosts.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 429,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								324,
-								324
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
 					"type": "text"
 				}
 			]
@@ -491,7 +294,7 @@
 	"project": "managemypi.sublime-project",
 	"replace":
 	{
-		"height": 64.0
+		"height": 42.0
 	},
 	"save_all_on_build": true,
 	"select_file":

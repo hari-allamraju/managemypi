@@ -1,0 +1,10 @@
+---
+- name: install java
+  hosts:  rpi
+  become: True
+
+  tasks:
+  - name: install Oracle Java
+    apt:
+      name: oracle-java8-jdk
+      state:  present

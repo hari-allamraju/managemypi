@@ -1,0 +1,7 @@
+---
+- name: install apache zookeeper
+  hosts:  rpi
+
+  tasks:
+  - name: download zookeeper
+    
