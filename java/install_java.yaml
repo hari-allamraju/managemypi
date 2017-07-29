@@ -8,3 +8,8 @@
     apt:
       name: oracle-java8-jdk
       state:  present
+
+  - name: install scala
+    apt:
+      name: scala
+      state:  present
