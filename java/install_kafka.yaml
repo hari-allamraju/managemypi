@@ -1,0 +1,10 @@
+---
+- name: install apache kafka
+  hosts:  rpi
+
+  tasks:
+  - name: download kafka
+    get_url:
+      url:  https://www.apache.org/dyn/closer.cgi?path=/kafka/0.11.0.0/kafka_2.11-0.11.0.0.tgz
+      dest: '/home/{{ ansible_user}}/downloads/kafka'
+      mode: 0660

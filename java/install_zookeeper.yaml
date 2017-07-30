@@ -4,4 +4,7 @@
 
   tasks:
   - name: download zookeeper
-    
+    get_url:
+      url:  http://www-eu.apache.org/dist/zookeeper/zookeeper-3.4.9/zookeeper-3.4.9.tar.gz
+      dest: '/home/{{ ansible_user}}/downloads/zookeeper'
+      mode: 0660
