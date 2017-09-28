@@ -3,6 +3,14 @@
   hosts: rpi
 
   tasks:
+  - name: install avconv
+    become: True
+    apt:  
+      name: libav-tools
+      state:  present
+      allow_unauthenticated:  yes
+
+  
   - name: install jinja2 if needed
     pip:
       name: jinja2
@@ -24,6 +32,12 @@
       src:  gallery.py
       dest: '/home/{{ ansible_user }}/gallery/gallery.py'
 
+  - name: copy video script
+    copy:
+      src:  make_video.sh
+      dest: '/home/{{ ansible_user }}/gallery/make_video.sh'
+      mode: 0755
+
   - name: copy template
     copy:
       src:  templates/index_html.j2
@@ -35,3 +49,10 @@
       user: '{{ ansible_user }}'
       minute: "*/15"
       job: "python /home/{{ ansible_user }}/gallery/gallery.py"
+
+  - name: setup video cron
+    cron:
+      name: "generate video"
+      user: '{{ ansible_user }}'
+      minute: "*/10"
+      job: "bash /home/{{ ansible_user }}/gallery/make_video.sh"

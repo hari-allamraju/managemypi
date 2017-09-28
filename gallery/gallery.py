@@ -1,5 +1,6 @@
 import os
 from jinja2 import Environment, FileSystemLoader
+import subprocess
  
 PATH = os.path.dirname(os.path.abspath(__file__))
 TEMPLATE_ENVIRONMENT = Environment(
@@ -22,7 +23,7 @@ def create_index_html():
     files=[]
     items = sorted_ls(os.path.expanduser("~/FTP/Hall"))
     for names in items:
-        if names.endswith(".jpg"):
+        if names.endswith(".mp4"):
             files.append(names)
     context = {
         'files': files
@@ -33,7 +34,7 @@ def create_index_html():
     files=[]
     items = sorted_ls(os.path.expanduser("~/FTP/HariRoom"))
     for names in items:
-        if names.endswith(".jpg"):
+        if names.endswith(".mp4"):
             files.append(names)
     context = {
         'files': files
