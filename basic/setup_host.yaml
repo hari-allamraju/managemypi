@@ -21,5 +21,7 @@
       line: 'ID=debian'
     tags:
       - os
-
- 
+  - name: expand file system
+    command:  raspi-config nonint do_expand_rootfs
+    tags:
+      - os

@@ -4,12 +4,9 @@
   become: True
 
   tasks:
-  - name: clean apt
-    apt:
-      autoclean:  yes
-
   - name: update apt
     apt:
+      autoclean:  yes
       update_cache: yes
       cache_valid_time: 3600
 
