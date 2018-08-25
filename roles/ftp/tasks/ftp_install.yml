@@ -1,0 +1,16 @@
+---
+
+- name: update apt
+  apt:
+    update_cache: yes
+    cache_valid_time: 3600
+  tags:
+    - ftp:install
+
+- name: install ftpd
+  apt:  
+    name: vsftpd
+    state:  present
+    allow_unauthenticated:  yes
+  tags:
+    - ftp:install

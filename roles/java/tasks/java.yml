@@ -1,0 +1,8 @@
+---
+
+- name: install Oracle Java
+  apt:
+    name: oracle-java8-jdk
+    state:  present
+  tags: 
+    - java:install

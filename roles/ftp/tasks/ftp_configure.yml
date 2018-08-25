@@ -1,0 +1,63 @@
+- name: create directory for FTP
+  file:
+    path: '/home/{{ ansible_user}}/FTP'
+    state:  directory
+    owner:  '{{ ansible_user }}'
+  tags:
+    - ftp:configure
+
+- name: configure ftp
+  lineinfile:
+    path: /etc/vsftpd.conf
+    line: anonymous_enable=NO
+  tags:
+    - ftp:configure
+
+- name: configure ftp
+  lineinfile:
+    path: /etc/vsftpd.conf
+    line: local_enable=YES
+  tags:
+    - ftp:configure
+
+- name: configure ftp
+  lineinfile:
+    path: /etc/vsftpd.conf
+    line: write_enable=YES
+  tags:
+    - ftp:configure
+
+- name: configure ftp
+  lineinfile:
+    path: /etc/vsftpd.conf
+    line: local_umask=0002
+  tags:
+    - ftp:configure
+
+- name: configure ftp
+  lineinfile:
+    path: /etc/vsftpd.conf
+    line: file_open_mode=0777
+  tags:
+    - ftp:configure
+
+- name: configure ftp
+  lineinfile:
+    path: /etc/vsftpd.conf
+    line: 'local_root=/home/{{ ansible_user}}/FTP'
+  tags:
+    - ftp:configure
+
+- name: configure ftp
+  lineinfile:
+    path: /etc/vsftpd.conf
+    line: 'accept_timeout=180'
+  tags:
+    - ftp:configure
+
+- name: restart service
+  service:
+    name: vsftpd
+    state:  restarted
+  tags:
+    - ftp:configure

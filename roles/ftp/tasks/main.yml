@@ -1,0 +1,4 @@
+---
+
+- include: ftp_install.yml
+- include: ftp_configure.yml

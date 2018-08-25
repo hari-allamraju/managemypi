@@ -1,7 +1,0 @@
----
-- name: add to docker machine
-  hosts: rpi
-
-  tasks:
-  - name: Add to docker machine
-    local_action:  command docker-machine create --driver generic --generic-ip-address={{ansible_default_ipv4.address}} --generic-ssh-key ~/.ssh/id_rsa --generic-ssh-user pi --engine-storage-driver=overlay {{inventory_hostname}}
