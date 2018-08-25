@@ -1,7 +1,0 @@
-- name:	reboot the nodes
-  hosts: rpi
-  become: True
-
-  tasks:
-  - name: shutdown
-    command: /sbin/shutdown -r

@@ -1,0 +1,5 @@
+---
+- hosts: rpi
+  become: True
+  roles:
+     - role: keys

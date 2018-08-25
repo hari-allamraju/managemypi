@@ -1,0 +1,16 @@
+---
+
+- name: update repos
+  apt:
+    update_cache: yes
+    cache_valid_time: 3600
+  tags:
+    - setup
+    - update
+
+- name: upgrade dist
+  apt:
+    upgrade: dist
+  tags:
+    - setup
+    - update

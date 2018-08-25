@@ -1,0 +1,6 @@
+---
+
+- name: shutdown
+  command: /sbin/shutdown
+  tags:
+    - shutdown
