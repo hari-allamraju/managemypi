@@ -5,14 +5,14 @@
     name: "{{ inventory_hostname }}"
   tags:
     - setup
-    - host
+    - setup:hostname
 
 - name: set timezone to Asia/Singapore
   timezone:
     name: Asia/Singapore
   tags:
     - setup
-    - host
+    - setup:timezone
 
 - name: set OS name for docker
   lineinfile:
@@ -21,10 +21,10 @@
     line: 'ID=debian'
   tags:
     - setup
-    - host
+    - setup:osname
 
 - name: expand file system
   command:  raspi-config nonint do_expand_rootfs
   tags:
     - setup
-    - host
+    - setup:expandfs

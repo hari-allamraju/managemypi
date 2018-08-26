@@ -1,0 +1,26 @@
+---
+
+- name: download hadoop
+  copy:
+    src: /Users/hari/Downloads/hadoop-3.1.1.tar.gz
+    dest: /opt/hadoop
+    mode: 0644
+    timeout: 120
+  tags:
+    - hadoop
+    - hadoop:download
+
+- name: unzip hadoop
+  unarchive: 
+    src: /opt/hadoop/hadoop-3.1.1.tar.gz
+    dest: /opt/hadoop
+  tags:
+    - hadoop
+    - hadoop:download
+
+- name: move hadoop
+  command: mv /opt/hadoop/hadoop-3.1.1 /opt/hadoop/hadoop
+  tags:
+    - hadoop
+    - hadoop:download
+  

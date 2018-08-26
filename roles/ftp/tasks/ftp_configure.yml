@@ -4,6 +4,7 @@
     state:  directory
     owner:  '{{ ansible_user }}'
   tags:
+    - ftp
     - ftp:configure
 
 - name: configure ftp
@@ -11,6 +12,7 @@
     path: /etc/vsftpd.conf
     line: anonymous_enable=NO
   tags:
+    - ftp
     - ftp:configure
 
 - name: configure ftp
@@ -18,6 +20,7 @@
     path: /etc/vsftpd.conf
     line: local_enable=YES
   tags:
+    - ftp
     - ftp:configure
 
 - name: configure ftp
@@ -25,6 +28,7 @@
     path: /etc/vsftpd.conf
     line: write_enable=YES
   tags:
+    - ftp
     - ftp:configure
 
 - name: configure ftp
@@ -32,6 +36,7 @@
     path: /etc/vsftpd.conf
     line: local_umask=0002
   tags:
+    - ftp
     - ftp:configure
 
 - name: configure ftp
@@ -39,6 +44,7 @@
     path: /etc/vsftpd.conf
     line: file_open_mode=0777
   tags:
+    - ftp
     - ftp:configure
 
 - name: configure ftp
@@ -46,6 +52,7 @@
     path: /etc/vsftpd.conf
     line: 'local_root=/home/{{ ansible_user}}/FTP'
   tags:
+    - ftp
     - ftp:configure
 
 - name: configure ftp
@@ -53,6 +60,7 @@
     path: /etc/vsftpd.conf
     line: 'accept_timeout=180'
   tags:
+    - ftp
     - ftp:configure
 
 - name: restart service
@@ -60,4 +68,5 @@
     name: vsftpd
     state:  restarted
   tags:
+    - ftp
     - ftp:configure

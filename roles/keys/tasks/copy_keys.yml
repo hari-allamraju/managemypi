@@ -5,12 +5,21 @@
     file: /usr/local/etc/ansible/ssh_vars/ssh_users.yml
   tags:
     - setup
-    - keys
+    - setup:keys
 
 - name:  copy the keys
   #later change this to allow per user key when we create unique users on the pi's
-  authorized_key: user=pi key="{{ item.key }}"
+  authorized_key: user="{{ item.user }}" key="{{ item.key }}"
   with_items: "{{ ssh_users }}"
   tags:
     - setup
-    - keys
+    - setup:keys
+
+- name: copy the key files the user
+  copy:
+    src: /usr/local/etc/ansible/my_keys/{{ item.user }}/id_rsa
+    dest: /home/{{ item.user }}/.ssh/id_rsa
+  with_items: "{{ ssh_users }}"
+  tags:
+    - setup
+    - setup:keys

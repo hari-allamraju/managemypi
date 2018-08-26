@@ -6,11 +6,13 @@
     cache_valid_time: 3600
   tags:
     - setup
-    - update
+    - setup:update
+    - setup:update:repos
 
 - name: upgrade dist
   apt:
     upgrade: dist
   tags:
     - setup
-    - update
+    - setup:update
+    - setup:update:dist

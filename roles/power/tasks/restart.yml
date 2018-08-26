@@ -2,4 +2,4 @@
 - name: shutdown
   command: /sbin/shutdown -r
   tags:
-    - restart
+    - power:restart

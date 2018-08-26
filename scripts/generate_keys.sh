@@ -1,8 +1,7 @@
 if [ "$#" -ne 1 ]; then
-    echo "Usage: $0 <alias for the key>" >&2
+    echo "Usage: $0 <user for the key>" >&2
     exit 1
 fi
-
 KEYS_DIR=/usr/local/etc/ansible/my_keys/$1
 SSH_VARS_DIR=/usr/local/etc/ansible/ssh_vars
 mkdir -p $KEYS_DIR
@@ -13,7 +12,7 @@ if [ ! -f $SSH_VARS_DIR/ssh_users.yml ]; then
 fi
 
 ssh-keygen -t rsa -b 4096 -C $1 -f $KEYS_DIR/id_rsa
-echo "  - user:  $USER" >> $SSH_VARS_DIR/ssh_users.yml
+echo "  - user:  $1" >> $SSH_VARS_DIR/ssh_users.yml
 echo "    key:  \"{{ lookup('file','$KEYS_DIR/id_rsa.pub') }}\"" >> $SSH_VARS_DIR/ssh_users.yml
 
 mkdir -p ~/.ssh

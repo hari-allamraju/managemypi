@@ -1,0 +1,4 @@
+---
+
+- include: hosts.yml
+- include: hadoop.yml
